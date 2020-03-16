@@ -1,15 +1,26 @@
 #ifndef MINIMALGRAPH_H
 #define MINIMALGRAPH_H
 
-struct MiniGraph {
-  MiniGraph(int count, float from, float to);
+#include <vector>
+#include "opengl/define_structure.h"
+
+class MiniGraph {
+public:
+  MiniGraph(float from, float to);
   int add(float red_channel, float green_channel, float blue_channel, float value);
+  int run();
 
 private:
-  float red_channel[1];
-  float green_channel[1];
-  float blue_channel[1];
-  float value[1];
+  std::vector<float> p_red_channel;
+  std::vector<float> p_green_channel;
+  std::vector<float> p_blue_channel;
+  std::vector<float> p_value;
+
+  std::vector<Vertex> vertices;
+
+  int   p_count;
+  float p_from;
+  float p_to;
 };
 
 

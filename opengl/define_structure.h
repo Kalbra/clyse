@@ -15,5 +15,4 @@ struct Vertex{
 
 
 
-
 #endif /* end of include guard: DEFINE_STRUECURE_H */
