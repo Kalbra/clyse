@@ -54,11 +54,20 @@ int MiniGraph::run()
 		cout << "errror";
     return -1;
 	}
+  p_count = p_value.size();
+
 /////////////////INITEND///////////////////////
-  float shiftingx = -0.5;
   float shiftingy = 0.9;
 
-
+  for(int i = 0; i<p_count;i++){
+    float shiftingx = (float)i /(float)10;
+    cout << shiftingx << endl;
+    cout << i << endl;
+    vertices.push_back(Vertex{ 0.2f+shiftingx,-0.9f, 0.0f,              p_red_channel[i], p_green_channel[i], p_blue_channel[i], 0.0f});
+    vertices.push_back(Vertex{ 0.2f+shiftingx, 0.0f+shiftingy, 0.0f,    p_red_channel[i], p_green_channel[i], p_blue_channel[i], 0.0f});
+    vertices.push_back(Vertex{-0.2f+shiftingx,-0.9f, 0.0f,              p_red_channel[i], p_green_channel[i], p_blue_channel[i], 0.0f});
+    vertices.push_back(Vertex{-0.2f+shiftingx, 0.0f+shiftingy, 0.0f,    p_red_channel[i], p_green_channel[i], p_blue_channel[i], 0.0f});
+  }
 
 /*
 	Vertex vertices[4] = {
@@ -69,14 +78,12 @@ int MiniGraph::run()
 	};
   */
 
-  vertices.push_back(Vertex{-0.05f+shiftingx,-0.9f, 0.0f,              1.0f, 0.0f, 0.0f, 0.0f});
-  vertices.push_back(Vertex{-0.05f+shiftingx, 0.0f+shiftingy, 0.0f,    0.0f, 1.0f, 0.0f, 0.0f});
-  vertices.push_back(Vertex{ 0.05f+shiftingx,-0.9f, 0.0f,              0.0f, 0.0f, 1.0f, 0.0f});
-  vertices.push_back(Vertex{ 0.05f+shiftingx, 0.0f+shiftingy, 0.0f,    1.0f, 1.0f, 1.0f, 0.0f});
 
-  cout << vertices.data() << endl;
 
-  int numberofvertices = 4;
+
+  int numberofvertices = vertices.size();
+
+ cout << "SIZE: "<< numberofvertices << endl;
 
 VertexBuffer vertixBuffer(vertices.data(), numberofvertices);
 
@@ -91,7 +98,10 @@ VertexBuffer vertixBuffer(vertices.data(), numberofvertices);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		vertixBuffer.bind();
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, numberofvertices);
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    glDrawArrays(GL_TRIANGLE_STRIP, 4, 10);
+//    glDrawArrays(GL_TRIANGLE_STRIP, 12, 16);
+
 
 		SDL_GL_SwapWindow(window);
 
