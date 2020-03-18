@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "minimalgraph.h"
+#include "analystic.h"
 
 #include "opengl/vertex_buffer.h"
 #include "opengl/define_structure.h"
@@ -22,12 +23,17 @@ MiniGraph::MiniGraph(float from, float to){
   p_to    = to;
 }
 
-int MiniGraph::add(float red_channel, float green_channel, float blue_channel, float value){
+void MiniGraph::add(float red_channel,float green_channel, float blue_channel, float value){
   p_red_channel.push_back(red_channel);
   p_green_channel.push_back(green_channel);
   p_blue_channel.push_back(blue_channel);
   p_value.push_back(value);
+
 }
+
+void MiniGraph::title(string title){p_title = title;}
+void MiniGraph::from(float from){p_from = from;}
+void MiniGraph::to(float to){p_to = to;}
 
 int MiniGraph::run()
 {
@@ -46,7 +52,7 @@ int MiniGraph::run()
 
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-	window = SDL_CreateWindow("TEST", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, p_count*50, 400, SDL_WINDOW_OPENGL);
+	window = SDL_CreateWindow(p_title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, p_count*50, 400, SDL_WINDOW_OPENGL);
 
 	SDL_GLContext glContext = SDL_GL_CreateContext(window);
 
@@ -64,7 +70,6 @@ int MiniGraph::run()
     float window_graphic = (float)0.6f/(float)p_count;
     float window_graphic_space = (float)0.7f*(float)p_count;
 
-    cout << window_graphic_space << endl;
 
     float shiftingx12 = (float)i /(float)window_graphic_space - (float)0.9f + (float)window_graphic;
     float shiftingx34 = (float)i /(float)window_graphic_space - (float)0.9f - (float)window_graphic;

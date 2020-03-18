@@ -2,12 +2,20 @@
 #define MINIMALGRAPH_H
 
 #include <vector>
+#include <string>
 #include "opengl/define_structure.h"
+#include "analystic.h"
 
 class MiniGraph {
 public:
   MiniGraph(float from, float to);
-  int add(float red_channel, float green_channel, float blue_channel, float value);
+  void add(float, float, float, float value);
+
+  void title(std::string);
+  void from(float from);
+  void to(float to);
+
+
   int run();
 
 private:
@@ -21,6 +29,8 @@ private:
   int   p_count;
   float p_from;
   float p_to;
+
+  std::string p_title = "MiniGraph";
 };
 
 
