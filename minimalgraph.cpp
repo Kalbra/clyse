@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "minimalgraph.h"
-#include "analystic.h"
+#include "core/core.h"
 
 #include "opengl/vertex_buffer.h"
 #include "opengl/define_structure.h"
@@ -23,10 +23,10 @@ MiniGraph::MiniGraph(float from, float to){
   p_to    = to;
 }
 
-void MiniGraph::add(float red_channel,float green_channel, float blue_channel, float value){
-  p_red_channel.push_back(red_channel);
-  p_green_channel.push_back(green_channel);
-  p_blue_channel.push_back(blue_channel);
+void MiniGraph::add(RGB_color color, float value){
+  p_red_channel.push_back(color.r);
+  p_green_channel.push_back(color.g);
+  p_blue_channel.push_back(color.b);
   p_value.push_back(value);
 
 }
