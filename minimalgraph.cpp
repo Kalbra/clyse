@@ -23,12 +23,11 @@ MiniGraph::MiniGraph(float from, float to){
   p_to    = to;
 }
 
-void MiniGraph::add(RGB_color color, float value){
-  p_red_channel.push_back(color.r);
-  p_green_channel.push_back(color.g);
-  p_blue_channel.push_back(color.b);
+void MiniGraph::add(int hexValue, float value){
+  p_red_channel.push_back(((hexValue >> 16) & 0xFF) / 255.0);
+  p_green_channel.push_back(((hexValue >> 8) & 0xFF) / 255.0);
+  p_blue_channel.push_back(((hexValue) & 0xFF) / 255.0);
   p_value.push_back(value);
-
 }
 
 void MiniGraph::title(string title){p_title = title;}

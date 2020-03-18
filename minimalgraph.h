@@ -9,7 +9,7 @@
 class MiniGraph {
 public:
   MiniGraph(float from, float to);
-  void add(RGB_color, float value);
+  void add(int, float value);
 
   void title(std::string);
   void from(float from);
