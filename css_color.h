@@ -33,32 +33,109 @@
 #define CSS_COLOR_DarkSalmon                  0xE9967A
 #define CSS_COLOR_DarkSeaGreen                0x8FBC8F
 #define CSS_COLOR_DarkSlateBlue               0x483D8B
-/*#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-#define CSS_COLOR_
-*/
+#define CSS_COLOR_DarkSlateGray               0x2F4F4F
+#define CSS_COLOR_DarkTurquoise               0x00CED1
+#define CSS_COLOR_DarkViolet                  0x9400D3
+#define CSS_COLOR_DeepPink                    0xFF1493
+#define CSS_COLOR_DeepSkyBlue                 0x00BFFF
+#define CSS_COLOR_DimGray                     0x696969
+#define CSS_COLOR_DodgerBlue                  0x1E90FF
+#define CSS_COLOR_FireBrick                   0xB22222
+#define CSS_COLOR_FloralWhite                 0xFFFAF0
+#define CSS_COLOR_ForestGreen                 0x228B22
+#define CSS_COLOR_Fuchsia                     0xFF00FF
+#define CSS_COLOR_Gainsboro                   0xDCDCDC
+#define CSS_COLOR_GhostWhite                  0xF8F8FF
+#define CSS_COLOR_Gold                        0xFFD700
+#define CSS_COLOR_GoldenRod                   0xDAA520
+#define CSS_COLOR_Gray                        0x808080
+#define CSS_COLOR_Green                       0x008000
+#define CSS_COLOR_GreenYellow                 0xADFF2F
+#define CSS_COLOR_HoneyDew                    0xF0FFF0
+#define CSS_COLOR_HotPink                     0xFF69B4
+#define CSS_COLOR_IndianRed                   0xCD5C5C
+#define CSS_COLOR_Indigo                      0x4B0082
+#define CSS_COLOR_Ivory                       0xFFFFF0
+#define CSS_COLOR_Khaki                       0xF0E68C
+#define CSS_COLOR_Lavender                    0xE6E6FA
+#define CSS_COLOR_LavenderBlush               0xFFF0F5
+#define CSS_COLOR_LawnGreen                   0x7CFC00
+#define CSS_COLOR_LemonChiffon                0xFFFACD
+#define CSS_COLOR_LightBlue                   0xADD8E6
+#define CSS_COLOR_LightCoral                  0xF08080
+#define CSS_COLOR_LightCyan                   0xE0FFFF
+#define CSS_COLOR_LightGoldenRodYellow        0xFAFAD2
+#define CSS_COLOR_LightGray                   0xD3D3D3
+#define CSS_COLOR_LightGreen                  0x90EE90
+#define CSS_COLOR_LightPink                   0xFFB6C1
+#define CSS_COLOR_LightSalmon                 0xFFA07A
+#define CSS_COLOR_LightSeaGreen               0x20B2AA
+#define CSS_COLOR_LightSkyBlue                0x87CEFA
+#define CSS_COLOR_LightSlateGray              0x778899
+#define CSS_COLOR_LightSteelBlue              0xB0C4DE
+#define CSS_COLOR_LightYellow                 0xFFFFE0
+#define CSS_COLOR_Lime                        0x00FF00
+#define CSS_COLOR_LimeGreen                   0x32CD32
+#define CSS_COLOR_Linen                       0xFAF0E6
+#define CSS_COLOR_Magenta                     0xFF00FF
+#define CSS_COLOR_Maroon                      0x800000
+#define CSS_COLOR_MediumAquaMarine            0x66CDAA
+#define CSS_COLOR_MediumBlue                  0x0000CD
+#define CSS_COLOR_MediumOrchid                0xBA55D3
+#define CSS_COLOR_MediumPurple                0x9370DB
+#define CSS_COLOR_MediumSeaGreen              0x3CB371
+#define CSS_COLOR_MediumSlateBlue             0x7B68EE
+#define CSS_COLOR_MediumSpringGreen           0x00FA9A
+#define CSS_COLOR_MediumTurquoise             0x48D1CC
+#define CSS_COLOR_MediumVioletRed             0xC71585
+#define CSS_COLOR_MidnightBlue                0x191970
+#define CSS_COLOR_MintCream                   0xF5FFFA
+#define CSS_COLOR_MistyRose                   0xFFE4E1
+#define CSS_COLOR_Moccasin                    0xFFE4B5
+#define CSS_COLOR_NavajoWhite                 0xFFDEAD
+#define CSS_COLOR_Navy                        0x000080
+#define CSS_COLOR_OldLace                     0xFDF5E6
+#define CSS_COLOR_Olive                       0x808000
+#define CSS_COLOR_OliveDrab                   0x6B8E23
+#define CSS_COLOR_Orange                      0xFFA500
+#define CSS_COLOR_OrangeRed                   0xFF4500
+#define CSS_COLOR_Orchid                      0xDA70D6
+#define CSS_COLOR_PaleGoldenRod               0xEEE8AA
+#define CSS_COLOR_PaleGreen                   0x98FB98
+#define CSS_COLOR_PaleTurquoise               0xAFEEEE
+#define CSS_COLOR_PaleVioletRed               0xDB7093
+#define CSS_COLOR_PapayaWhip                  0xFFEFD5
+#define CSS_COLOR_PeachPuff                   0xFFDAB9
+#define CSS_COLOR_Peru                        0xCD853F
+#define CSS_COLOR_Pink                        0xFFC0CB
+#define CSS_COLOR_Plum                        0xDDA0DD
+#define CSS_COLOR_PowderBlue                  0xB0E0E6
+#define CSS_COLOR_Purple                      0x800080
+#define CSS_COLOR_RebeccaPurple               0x663399
+#define CSS_COLOR_Red                         0xFF0000
+#define CSS_COLOR_RosyBrown                   0xBC8F8F
+#define CSS_COLOR_RoyalBlue                   0x4169E1
+#define CSS_COLOR_SaddleBrown                 0x8B4513
+#define CSS_COLOR_Salmon                      0xFA8072
+#define CSS_COLOR_SandyBrown                  0xF4A460
+#define CSS_COLOR_SeaGreen                    0x2E8B57
+#define CSS_COLOR_SeaShell                    0xFFF5EE
+#define CSS_COLOR_Sienna                      0xA0522D
+#define CSS_COLOR_Silver                      0xC0C0C0
+#define CSS_COLOR_SkyBlue                     0x87CEEB
+#define CSS_COLOR_SlateBlue                   0x6A5ACD
+#define CSS_COLOR_SlateGray                   0x708090
+#define CSS_COLOR_Snow                        0xFFFAFA
+#define CSS_COLOR_SpringGreen                 0x00FF7F
+#define CSS_COLOR_SteelBlue                   0x4682B4
+#define CSS_COLOR_Tan                         0xD2B48C
+#define CSS_COLOR_Teal                        0x008080
+#define CSS_COLOR_Thistle                     0xD8BFD8
+#define CSS_COLOR_Tomato                      0xFF6347
+#define CSS_COLOR_Turquoise                   0x40E0D0
+#define CSS_COLOR_Violet                      0xEE82EE
+#define CSS_COLOR_Wheat                       0xF5DEB3
+#define CSS_COLOR_White                       0xFFFFFF
+#define CSS_COLOR_WhiteSmoke                  0xF5F5F5
+#define CSS_COLOR_Yellow                      0xFFFF00
+#define CSS_COLOR_YellowGreen                 0x9ACD32
