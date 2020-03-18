@@ -4,7 +4,6 @@
 
 RGB_color color;
 
-
 using namespace std;
 
 int main(int argc, char const *argv[]) {
@@ -15,6 +14,7 @@ int main(int argc, char const *argv[]) {
 	mygraph.add(color,1.0f);
 	mygraph.title("hello");
 	mygraph.run();
+
 
 	return 0;
 }

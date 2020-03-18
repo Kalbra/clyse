@@ -7,4 +7,6 @@ struct RGB_color{
   float b;
 };
 
+extern const RGB_color white_color;
+
 #endif /* end of include guard: CORE_H */
