@@ -4,12 +4,12 @@
 #include <vector>
 #include <string>
 #include "opengl/define_structure.h"
-#include "analystic.h"
+#include "core/core.h"
 
 class MiniGraph {
 public:
   MiniGraph(float from, float to);
-  void add(float, float, float, float value);
+  void add(RGB_color, float value);
 
   void title(std::string);
   void from(float from);
