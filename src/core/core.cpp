@@ -112,7 +112,7 @@ int Diagram::Run(){
   VertexBuffer vertixBuffer(vertices.data(), numberofvertices);
 
 
-  	Shader shader("opengl/shader/basic.vs", "opengl/shader/basic.fs");
+  	Shader shader("src/opengl/shader/basic.vs", "src/opengl/shader/basic.fs");
   	shader.bind();
 
     uint64_t perfCounterFrequency = SDL_GetPerformanceFrequency();
