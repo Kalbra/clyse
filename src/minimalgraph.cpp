@@ -14,6 +14,8 @@
 #include "opengl/define_structure.h"
 #include "opengl/shader.h"
 
+int x;
+int y;
 
 using namespace std;
 
@@ -33,6 +35,14 @@ void MiniGraph::add(int hexValue, float value){
 void MiniGraph::title(string title){p_title = title;}
 void MiniGraph::from(float from){p_from = from;}
 void MiniGraph::to(float to){p_to = to;}
+
+void FRTAP(){
+  
+}
+
+
+
+
 
 int MiniGraph::run()
 {
@@ -56,6 +66,8 @@ int MiniGraph::run()
 	SDL_GLContext glContext = SDL_GL_CreateContext(window);
 
 	GLenum err = glewInit();
+
+
 
 	if(err != GLEW_OK){
 		cout << "errror";
@@ -93,9 +105,12 @@ VertexBuffer vertixBuffer(vertices.data(), numberofvertices);
 	Shader shader("opengl/shader/basic.vs", "opengl/shader/basic.fs");
 	shader.bind();
 
+  uint64_t perfCounterFrequency = SDL_GetPerformanceFrequency();
+  uint64_t lastCounter = SDL_GetPerformanceCounter();
+
+  float delta = 0.0f;
 
 	bool close = false;
-
 	while (!close) {
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -106,8 +121,6 @@ VertexBuffer vertixBuffer(vertices.data(), numberofvertices);
       glDrawArrays(GL_TRIANGLE_STRIP, i*4, 4);
     }
 
-
-
 		SDL_GL_SwapWindow(window);
 
 
@@ -117,7 +130,14 @@ VertexBuffer vertixBuffer(vertices.data(), numberofvertices);
 			if(event.type == SDL_QUIT) {
 				close = true;
 			}
+
 		}
+    uint64_t endCounter = SDL_GetPerformanceCounter();
+    uint64_t counterElapsed = endCounter - lastCounter;
+    delta = ((float)counterElapsed / (float)perfCounterFrequency);
+    uint32_t FPS = (uint32_t)((float)perfCounterFrequency / (float)counterElapsed);
+    cout << FPS << endl;
+    lastCounter = endCounter;
 	}
   return 0;
 }
