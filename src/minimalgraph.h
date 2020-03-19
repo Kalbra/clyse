@@ -15,6 +15,8 @@ public:
   void from(float from);
   void to(float to);
 
+  void FRTAP(int x, int y, float *xa, float ya);
+
 
   int run();
 
@@ -27,8 +29,9 @@ private:
   std::vector<Vertex> vertices;
 
   int   p_count;
-  float p_from;
-  float p_to;
+
+  float p_from = 0;
+  float p_to   = 0;
 
   std::string p_title = "MiniGraph";
 };
