@@ -5,15 +5,17 @@ Description cooming soon
 Build
 -------
 Install important libs for Clyse
-``` shell
+```console
 sudo apt install cmake libsdl2-dev g++
 ```
 Compile Clyse
-``` shell
+```console
 cmake ./CMakeLists.txt
+```
+```console
 make
 ```
 Run
-``` shell
+```console
 ./cmake_testapp
 ```
