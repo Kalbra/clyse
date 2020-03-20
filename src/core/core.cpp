@@ -10,12 +10,23 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "/home/kalle/Programieren/c++ analytics/src/opengl/define_structure.h"
-#include "/home/kalle/Programieren/c++ analytics/src/opengl/shader.h"
-#include "/home/kalle/Programieren/c++ analytics/src/opengl/vertex_buffer.h"
+#include "../opengl/define_structure.h"
+#include "../opengl/shader.h"
+#include "../opengl/vertex_buffer.h"
 
 using namespace std;
 
+float rx;
+float ry;
+
+//Makes out xy absulute values xy relativ values for opengl
+float Diagram::APTRPx(int ax){
+  return (float)ax / (float)p_x - (float)1;
+}
+
+float Diagram::APTRPy(int ay){
+  return (float)ay / (float)p_y - (float)1;
+}
 
 //Set and Add values
 //Add item; include item into vetor array
@@ -30,10 +41,15 @@ void Diagram::SetTitle(string title){
   p_title = title;
 }
 
-//Set geometry; include x,y into vector array
+//Set geometry; include x,y into vars
 void Diagram::SetGeometry(int x, int y){
   p_x = x;
   p_y = y;
+}
+
+//Set Mode; set p_mode into var
+void Diagram::SetMode(int mode){
+  p_mode = mode;
 }
 
 /////////////////////////////////////
@@ -71,7 +87,7 @@ int Diagram::Run(){
 
   	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-  	window = SDL_CreateWindow(p_title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, p_count*50, 400, SDL_WINDOW_OPENGL);
+  	window = SDL_CreateWindow(p_title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, p_x, p_y, SDL_WINDOW_OPENGL);
 
   	SDL_GLContext glContext = SDL_GL_CreateContext(window);
 
@@ -84,16 +100,16 @@ int Diagram::Run(){
       return -1;
   	}
 
-
   /////////////////INITEND///////////////////////
 
+/*
     for(int i = 0; i<p_count;i++){
       float window_graphic = (float)0.6f/(float)p_count;
-      float window_graphic_space = (float)0.7f*(float)p_count;
+      float window_graphic_space = (float)0.6f*(float)p_count;
 
 
-      float shiftingx12 = (float)i /(float)window_graphic_space - (float)0.9f + (float)window_graphic;
-      float shiftingx34 = (float)i /(float)window_graphic_space - (float)0.9f - (float)window_graphic;
+      float shiftingx12 = (float)i /(float)window_graphic_space - (float)0.0f + (float)window_graphic;
+      float shiftingx34 = (float)i /(float)window_graphic_space - (float)0.0f - (float)window_graphic;
 
       float shiftingy   = (float)p_record[i]*(float)18/(float)10 -(float)0.9f;
 
@@ -106,10 +122,30 @@ int Diagram::Run(){
       vertices.push_back(Vertex{shiftingx34,-0.9f, 0.0f,              use_p_red_channel, use_p_green_channel, use_p_blue_channel, 0.0f});
       vertices.push_back(Vertex{shiftingx34, 0.0f+shiftingy, 0.0f,    use_p_red_channel, use_p_green_channel, use_p_blue_channel, 0.0f});
     }
+*/
+int xval = 0;
+
+    for(int i = 1; i<=p_count;i++){
+
+      float shiftingy = (float)p_record[i-1] * (float)2 - (float)1;
+
+      float use_p_red_channel   = (((p_color[i-1] >> 16) & 0xFF) / 255.0);
+      float use_p_green_channel = (((p_color[i-1] >> 8) & 0xFF) / 255.0);
+      float use_p_blue_channel  = (((p_color[i-1]) & 0xFF) / 255.0);
+
+
+      vertices.push_back(Vertex{APTRPx(xval),APTRPy(0),0.0f,              use_p_red_channel, use_p_green_channel, use_p_blue_channel, 0.0f});
+      vertices.push_back(Vertex{APTRPx(xval),shiftingy,0.0f,    use_p_red_channel, use_p_green_channel, use_p_blue_channel, 0.0f});
+      xval = i*100;
+      vertices.push_back(Vertex{APTRPx(xval),APTRPy(0),0.0f,              use_p_red_channel, use_p_green_channel, use_p_blue_channel, 0.0f});
+      vertices.push_back(Vertex{APTRPx(xval),shiftingy,0.0f,    use_p_red_channel, use_p_green_channel, use_p_blue_channel, 0.0f});
+
+    }
+
 
     int numberofvertices = vertices.size();
 
-  VertexBuffer vertixBuffer(vertices.data(), numberofvertices);
+    VertexBuffer vertixBuffer(vertices.data(), numberofvertices);
 
 
   	Shader shader("src/opengl/shader/basic.vs", "src/opengl/shader/basic.fs");
@@ -146,7 +182,7 @@ int Diagram::Run(){
       uint64_t counterElapsed = endCounter - lastCounter;
       delta = ((float)counterElapsed / (float)perfCounterFrequency);
       uint32_t FPS = (uint32_t)((float)perfCounterFrequency / (float)counterElapsed);
-      cout << FPS << endl;
+      //cout << FPS << endl;
       lastCounter = endCounter;
   	}
     return 0;

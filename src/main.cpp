@@ -1,33 +1,39 @@
-#include "minimalgraph.h"
 #include "core/core.h"
-#include <iostream>
-#include "css_color.h"
 
 using namespace std;
 
-int main(int argc, char const *argv[]) {
-/*
-	MiniGraph mygraph(1.0f, 1.0f);
-	mygraph.add(CSS_COLOR_CornflowerBlue,1.0f);
+int main() {
 
-	mygraph.title("hello");
-	mygraph.run();
-*/
-	BarItem hello;
-	hello.color = 0x0000FF;
-	hello.name  = "hekksdkf";
-	hello.record = 0.2f;
+	BarItem Item1;                  //Add Item1
+	Item1.color = 0x0000FF;         //Add color 0x0000FF
+ 	Item1.name  = "Untitled 1";     //Add name
+	Item1.record = 0.2f;            //Add value from 0.0f to 1.0f
 
-	Diagram test;
-	test.AddItem(hello);
-	test.SetTitle("hello");
+	BarItem Item2;
+	Item2.color = 0x00FF00;
+ 	Item2.name  = "Untitled 2";
+	Item2.record = 1.0f;
 
-	test.Run();
+	BarItem Item3;
+	Item3.color = 0xFF0000;
+ 	Item3.name  = "Untitled 1";
+	Item3.record = 0.2f;
+
+	BarItem Item4;
+	Item4.color = 0xFFFF00;
+ 	Item4.name  = "Untitled 1";
+	Item4.record = 1.0f;
+
+	Diagram myDiagram;
+	myDiagram.AddItem(Item1);
+	myDiagram.AddItem(Item2);
+	myDiagram.AddItem(Item3);
 
 
 
+	myDiagram.SetGeometry(600, 800);
 
-
+ 	myDiagram.Run();
 
 	return 0;
 }
